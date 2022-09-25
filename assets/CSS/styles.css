@@ -1,0 +1,158 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+.navbar-brand{
+    height: 10vh;
+   
+}
+.logo{
+    height: 10vh;
+
+  
+}
+.bg-gris{
+    background-color: #B2B2B3;
+    background-size: cover;
+  
+}
+.list-group-item{
+    --bs-list-group-bg:transparent;
+    --bs-list-group-border-color:transparent;
+    scale:75% ;
+    
+}
+
+i.fa-brands.fa-linkedin:hover{
+    color:#0077B7 !important;
+    
+}
+I.fa-brands.fa-square-github:hover{
+    color: #323332 !important;
+
+}
+
+i.fa-brands.fa-square-facebook:hover{
+    color: #3A549E!important;
+}
+i.fa-solid.fa-user-lock:hover{
+    color: azure !important;
+
+}
+
+i.fa-brands.fa-square-instagram:hover{
+    background-image: linear-gradient(to top right, #F9CE01, #F80501,#7B38AE);
+     
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent!important;
+}
+
+section.banner{
+    width: 100%;
+    height: 42vh;
+    margin: auto;
+    margin-top: -1px;
+    min-width: 430px;
+    background-image: url(/Assets/imag/banner_e.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    border-bottom: 5px solid #323332;
+    border-bottom-left-radius:5%;
+    border-bottom-right-radius:5%;
+}
+.foto_perfil{
+    width:50%;
+    margin: auto;
+    margin-top: -8rem;
+    margin-left: 5rem;
+    border: 4px solid #323332;
+}
+
+.nombre{
+    font-family: Verdana;
+    font-size: 100%;
+    margin-left: 5rem;
+}
+.puntitos{
+    width: 7%;
+}
+h4.developer{
+    font-family: Verdana;
+    font-size: 150%;
+}
+.acercade{
+    margin-top: -8.5% ;
+    
+    font-family: Verdana,italic;
+    font-size: 100%;
+}
+.ct{
+    margin-top: 2rem;
+    margin-left: 2vh;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.titulo_de_seccion{
+    color: #003C79;
+    font-family: Verdana;
+}
+
+.logo_empresa{
+    width:50%;
+    margin: 0 auto;
+    border-radius:50%;
+    border: 4px solid #323332; 
+}
+.d{
+    margin-left: -12px;
+}
+.fecha{
+    font-family: 'Montserrat', sans-serif;
+    
+    font-size: 100%;
+    margin: auto;
+    }
+.subtitulo_seccion{
+    font-family: 'Montserrat', sans-serif;
+    
+}
+.foto_ed{
+    width: 50%;
+    margin: 0 auto;
+    border-radius:50%;
+    border: 3px solid #323332; 
+    color:  #323332;    
+
+}
+.logo_empresa:hover{
+    transition: 400ms;
+    transform: translatey(-5%);
+    box-shadow: 0px 5px 12px #323332;
+}
+.foto_ed:hover{
+    transition: 400ms;
+    transform: translatey(-5%);
+    box-shadow: 0px 5px 12px #323332;
+}
+.progress {
+    margin-top: 1rem;
+}
+.titulo_barra{
+    color: #2596be;
+    font-size: 3vh;
+}
+img.card-img{
+    display: flex;
+   
+}
+
+footer{
+    color: #323332;
+    padding: 12px;
+    background-color: #B2B2B3;
+    height: 7vh;
+}
