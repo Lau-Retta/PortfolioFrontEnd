@@ -2,16 +2,23 @@
     margin: 0;
     padding: 0;
 }
-
+body::-webkit-scrollbar{
+    width: 12px;
+}
+body::-webkit-scrollbar-thumb{
+    background: #B2B2B3;
+    border-radius: 5px;
+}
+.cuerpo{
+    margin: 3rem;
+}
 
 .navbar-brand{
-    height: 10vh;
+    height: 11vh;
    
 }
 .logo{
-    height: 10vh;
-
-  
+    height: 119%;
 }
 .bg-gris{
     background-color: #B2B2B3;
@@ -38,6 +45,10 @@ i.fa-brands.fa-square-facebook:hover{
     color: #3A549E!important;
 }
 i.fa-solid.fa-user-lock:hover{
+    color: azure !important;
+
+}
+i.fa-solid.fa-user:hover{
     color: azure !important;
 
 }
@@ -79,7 +90,7 @@ section.banner{
     margin-left: 5rem;
 }
 .puntitos{
-    width: 7%;
+    width: 20%;
 }
 h4.developer{
     font-family: Verdana;
@@ -152,7 +163,110 @@ img.card-img{
 
 footer{
     color: #323332;
-    padding: 12px;
+    
     background-color: #B2B2B3;
     height: 12vh;
+}
+footer .col-6{
+    margin-top: 1%;
+    color: #323332;
+    font-size:100%;
+}
+/* Registro*/
+.Formulario{
+    height: 73.5vh
+}
+/* Panel de administrador*/
+.Panel{
+    height: 73.5vh
+
+}
+.Panel .card .nav{
+    color:rgb(252, 252, 252);
+    height: min-content;
+    background-color: #323332;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    height: 72vh;
+}
+.Panel .card .info{
+    color: white;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+.link{
+    width: 100%;
+    color: white!important;
+    font-size: 150%;
+    margin-top: 12px;
+}
+@media screen and (max-width:652px) {
+    .link{
+        font-size: 130%;
+    }
+    
+}
+a.link{
+    text-decoration: none;
+}
+a.link:hover{
+    color: #5fb2f2!important;
+}
+.item:hover{
+    background-color: #013d798f;
+    border-radius: 20px;
+}
+
+.logo_chico{
+    display: flex;
+    width: 8vh;
+
+}
+.list-group{
+    --bs-list-group-action-hover-bg: #f8f9fa00!important;
+    --bs-list-group-action-active-bg: #e9ecef00!important;
+}
+.nombre_redes{
+    font-family: 'Montserrat', sans-serif;
+    font-size:xx-large;
+}
+.muestra_de_imag{
+    width: 100%;
+    border-radius: 5px;
+}
+.azulito{
+    color: white!important;
+    background-color: #0077B7!important;
+}
+.azulito:hover{
+    background-color: #003C79 !important;
+}
+.link-btn{
+    margin-top:-5%;
+    height: 20%;
+    color: white!important;
+}
+.link-btn:hover{
+    color: #5fb2f2!important;
+}
+.skills{
+   
+    min-height: 100px;
+    height: 50%;
+}
+.submenu{
+    color: white!important;
+    font-size: 120%;
+}
+.submenu:hover{
+    color: #5fb2f2!important;
+}
+.list-group-item.active {
+    z-index: 3;
+    color: var(--bs-list-group-active-color);
+    background-color: #003d7900!important;
+    border-color: #003d7900!important;
+}
+.alturaCard{
+    width:35vh!important;
 }
