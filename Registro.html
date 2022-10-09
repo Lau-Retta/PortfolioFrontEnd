@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <!--Icono-->
+ <link rel="icon" href="/Assets/imag/APLogo-20-20 - Blanco.ico">
+ <!--CSS-->
+ <link rel="stylesheet" href="/Assets/CSS/styles.css">
+ <!-- Bootsatrap-->
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+ <!--Google fonts-->
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>  
+ <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+ <!-- FontAwsome -->
+ <script src="https://kit.fontawesome.com/ffffb755b4.js" crossorigin="anonymous"></script>
+ <title>Registro</title>
+ 
+</head>
+<body>
+    <header>
+        <!--Barra de navegación-->
+<nav class="navbar navbar-expand-lg bg-gris">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/Index.html">
+        <img src="/Assets/imag/APLogo-20-20 (1).png" alt="Logo Argentina Prigrama" class="logo">
+      </a>
+      <ul class="nav justify-content-end">
+        <li class="nav-item">
+          <li class="list-group-item">
+            <i data-bs-toggle="modal" data-bs-target="#loginModal" class="fa-solid fa-user-lock text-black fa-3x  "></i><!-- Button trigger modal -->
+          </li> <!--Login-->
+      </ul>
+    </div>  
+  </nav>
+    </header>
+    <section class="Formulario">
+        <div class="container">
+            <form>
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label mt-3">Nombre</label>
+                    <input type="text" class="form-control" id="exampleInputPassword1">
+                  </div>
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label ">Email</label>
+                  <input type="email" class="form-control " id="exampleInputEmail1" aria-describedby="emailHelp">
+                  <div id="emailHelp" class="form-text">Nunca compartiremos su correo electrónico con nadie más.</div>
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+                  <input type="password" class="form-control" id="exampleInputPassword1">
+                  <div class="form-text"> Si ya tienes cuenta <a data-bs-toggle="modal" data-bs-target="#loginModal" class="text-primary"> ingresá </a></button><!-- Button trigger modal --> </div>
+                </div>
+               
+              <div class="modal-footer">
+                <button type="submit" class="btn btn-success">Registrarse</button>
+              </div>
+        </div>
+        
+    </section>
+<!-- Modal login / Ventana emergen  te para inicio de sesión-->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Inicio de sesión</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Email</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              <div id="emailHelp" class="form-text">Nunca compartiremos su correo electrónico con nadie más.</div>
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+              <input type="password" class="form-control" id="exampleInputPassword1">
+              
+            </div>
+            
+            
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerra</button>
+          <button type="submit" class="btn btn-success">Iniciar sesión</button>
+        </div>
+      </div>
+    </div>
+  </div>
+    <footer class="footer text-center mt">
+        <div class="d-flex">
+     <div class="col-6 p-3" >©copyright Lautaro Rodrigo Retta-2022</div>
+        <div class="col-6">
+            <strong>Contactos:</strong><br>
+           Correo: lauatroretta@gmail.com<br> 
+           Tel: 11 5140-7581
+        </div>
+       
+        </div>
+       
+      </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+</body>
+
+
+
+</html>
