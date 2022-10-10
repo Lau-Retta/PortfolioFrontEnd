@@ -4,26 +4,15 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1" style="width: 115px;">
-    <!--Icono-->
-    <link rel="icon" href="">
-   
-   
+
   </head>
   <body>
-    <header>
-      <app-encabezado></app-encabezado>
-    </header>
-      
-        <!--Experiencias Laborales-->
-       <app-experiencias-laborales></app-experiencias-laborales>
-        <!--Educación-->
-        <app-educacion></app-educacion>
-        <!--Skills-->
-        <app-habilidades></app-habilidades>
-        <!--Proyectos-->
-        <app-proyectos></app-proyectos>
-        <!--Footer-->
-        <footer class="footer text-center">
+  
+
+    <router-outlet></router-outlet>
+   
+    <!--Footer-->
+    <footer class="footer text-center">
           <div class="d-flex ">
             <div class="col-6 copyR"> <strong>©copyright Lautaro Rodrigo Retta-2022</strong>  
             </div>
@@ -33,44 +22,11 @@
               
             </div>
           </div>    
-        </footer>
-        <!-- Modal login / Ventana emergen  te para inicio de sesión-->
-        <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel"    aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Inicio de sesión</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                <form>
-                  <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                    <div id="emailHelp" class="form-text">Nunca compartiremos su correo electrónico con nadie más.</div>
-                  </div>
-                  <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1">
-                    <div class="form-text">Si todavia no tienes cuenta <a href="/Registro.html">registrate</a> </div>
-                  </div>
-                  
-                  
-                </form>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerra</button>
-              <button type="submit" class="btn btn-success">Iniciar sesión</button>
-            </div>
-          </div>
-          
+    </footer>
+    <!-- Modal login / Ventana emergen  te para inicio de sesión-->
         
-          
-          <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
-          
-          </div>
-        </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
   </body>
-  
+ 
 </html>
 
