@@ -13,12 +13,11 @@ import { PaginaFueraDeServicioComponent } from './pagina-fuera-de-servicio/pagin
 @NgModule({
   declarations: [
     EducacionComponent,
-    EncabezadoComponent,
+    
     HabilidadesComponent,
     LoginComponent,
     ProyectosComponent,
-    ExperienciasLaboralesComponent,
-    RegistroComponent,
+
     PaginaFueraDeServicioComponent
   ],
   imports: [

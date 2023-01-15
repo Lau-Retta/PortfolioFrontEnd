@@ -30,7 +30,6 @@ import { AppRoutingModule } from './app-routing.module';
     ProyectosComponent,
     LoginComponent,
     InicioComponent,
-    RegistroComponent,
     PanelAdministradorComponent,
   
 
