@@ -10,6 +10,7 @@ export class RegistroComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    
   }
 
 }
