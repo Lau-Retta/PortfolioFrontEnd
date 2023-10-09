@@ -1,0 +1,39 @@
+<section class="Hard ct">
+    <div class="container-fluid ">
+      <div class="d-flex">
+        <div><h2 class="titulo_de_seccion"> <strong> Habilidades </strong> </h2></div>
+        <div>
+          <img src="../assets/imag/barras .png" alt="puntitos" class="puntitos">
+        </div>
+      </div>
+    </div>
+  
+  <!--BARRAS DE PROGRESO HABILIDADES DURAS-->
+
+  <div class="card" style="margin: 2%;">
+    <h5 class="card-header text-bg-dark">Hard Skills</h5>
+    <div class="card-body">
+      <div class="container mt-4 text-center"  *ngFor="let habilidad of hardskill;let i = index" >
+        <h2 class="titulo_barra subtitulo_seccion">{{habilidad.habilidad}}</h2>
+        <div class="progress" > 
+          <div class="progress-bar " [class]="coloresDeFondo[i % coloresDeFondo.length]" role="progressbar" aria-label="Success example" [style.width.%]="habilidad.nivel" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  <!--BARRAS DE PROGRESO HABILIDADES BLANDAS-->
+
+  <div class="card" style="margin: 2%">
+    <h5 class="card-header text-bg-dark">Soft Skills</h5>
+    <div class="card-body">
+      <div class="container mt-4" >
+        <span class="d-inline-block" *ngFor="let habilidad of softskills" tabindex="0" data-bs-toggle="tooltip" title="Disabled tooltip">
+          <button class="btn btn-primary m-1" type="button" disabled><h2 class="softskills">{{habilidad.habilidad}}</h2></button>
+        </span>
+      </div>
+    </div>
+  </div>
+      
+    
+  </section>

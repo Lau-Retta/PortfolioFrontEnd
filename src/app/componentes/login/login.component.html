@@ -1,0 +1,58 @@
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Inicio de sesión</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="loginForm">
+          <!--  USUARIO -->
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email</label>
+            <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" autocomplete="off"
+            formControlName="email">
+            <div *ngIf="!email.invalid" id="emailHelp" class="form-text">No compartiremos tu correo con nadie más.</div>
+            <!--Mensajes de error en validar formato-->
+            <div *ngIf="email.invalid && (email.dirty || email.touched)" class="text-danger">
+
+              <div *ngIf="email.errors?.['email']">
+                Formato ingresado erroneo
+              </div>
+
+              <div *ngIf="email.errors?.['required']">
+                email es requerido es requerido
+              </div>
+
+            </div>
+
+            <!--  PASSWORD -->
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+              <input type="password" class="form-control" id="exampleInputPassword1" formControlName="password" minlength="4" required>
+              
+            </div>
+            <!--Mensajes de error en validar formato-->
+            <div *ngIf="password.invalid && (password.dirty || password.touched)"
+									class="text-danger">
+
+									<div *ngIf="password.errors?.['required']">
+										Contraseña es requerida
+									</div>
+
+                  <div *ngIf="loginForm.get('password')?.hasError('minlength')">
+										Minimo de 8 caracteres
+									</div>
+
+								</div>
+          </div>
+          <div class="form-text" data-bs-dismiss="modal">Si todavia no tienes cuenta <a
+            routerLink="/registro">registrate</a> </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerra</button>
+        <button type="submit" class="btn btn-success" data-bs-dismiss="modal" (click)="login()">Iniciar sesión</button>
+      </div>
+    </div>
+  </div>

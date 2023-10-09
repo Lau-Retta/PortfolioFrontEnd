@@ -1,0 +1,35 @@
+<section class="experiencia ct container-fluid " *ngIf="trab[0]">
+    <div class="container-fluid">
+      <div class="d-flex">
+        <div ><h2 class="titulo_de_seccion"> <strong> Experiencias Laborales </strong> </h2>
+        </div>
+        <div>
+          <img src="../assets/imag/barras .png" alt="puntitos" class="barras">
+        </div>
+      </div>
+    </div>
+  
+    <div class="experiencia_ct">
+      <div class="container-exp contenedor p-2">
+        <div class="row m-2" *ngFor="let trabajo of trab">
+          <div class="col-md-6 col-xl-8 m-t1">
+            <h3 class="subtitulo_seccion">{{trabajo.empresa}} </h3>
+            {{trabajo.descripcion}} 
+          </div>
+
+          <div class="col-md-6 col-xl-4 mt-1 contenedor text-center ">
+
+            <a href="{{trabajo.url_info}}" target="_blank"><img src="{{trabajo.img_empresa}}" alt="Logo_gp_quality" class="logo_empresa "></a>
+            
+            <p class="fecha m-0 p-1 w-100">{{trabajo.inicio}} - {{trabajo.fin}}</p>
+            
+          </div>
+        </div>
+        
+          
+        
+      </div>  
+    </div>
+    
+    
+  </section>

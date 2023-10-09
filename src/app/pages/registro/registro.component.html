@@ -1,0 +1,151 @@
+<body>
+  <header>
+    <!--Barra de navegación-->
+    <nav class="navbar navbar-expand-lg bg-gris">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="inicio">
+          <img src="../../../assets/imag/APLogo-20-20 (1).png" alt="Logo Argentina Prigrama" class="logo">
+        </a>
+        <ul class="nav justify-content-end">
+          <li class="nav-item">
+          <li class="list-group-item-nav">
+            <i data-bs-toggle="modal" data-bs-target="#loginModal"
+              class="fa-solid fa-user-lock text-black fa-3x  "></i><!-- Button trigger modal -->
+          </li> <!--Login-->
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <section class="ftco-section">
+
+
+   
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-6 text-center mb-5 mt-3">
+            <h2 class="heading-section">Sign in</h2>
+          </div>
+        </div>
+        
+        <div class="row justify-content-center">
+          <div class="col-md-7 col-lg-5">
+            <div class="login-wrap p-4 p-md-5">
+              <!--icon-->
+              <div class="icon d-flex align-items-center justify-content-center bg-secondary">
+                <span class="fa fa-user-o"></span>
+              </div>
+
+              <h3 class="text-center">Sign in</h3>
+              <div class="text-danger">{{registerError}}</div>
+              <label class="text-danger"> </label>
+              <!-- FORMULARIO -->
+              <form [formGroup]="registerForm" class="login-form" >
+                <div class="form-group">
+                  <!--USUARIO-->
+                  <input type="text" class="form-control rounded-left mb-2" placeholder="Username"
+                    formControlName="username" required>
+                   
+                    <div *ngIf="username.invalid && (username.dirty || username.touched)" class="text-danger">
+  
+                      <div *ngIf="username.errors?.['required']">
+                        Ususario es requerido
+                      </div>
+  
+                    </div> 
+  
+                </div>
+                              <div class="form-group">
+                  <!--EMAIL-->
+                  <input type="email" name="email" class="form-control rounded-left  mb-2" placeholder="ejemplo@example.com"
+                    formControlName="email" autocomplete="off" required>
+                    <div *ngIf="!email.invalid" id="emailHelp" class="form-text">No compartiremos tu correo con nadie más.</div>
+                    <div *ngIf="email.invalid && (email.dirty || email.touched)" class="text-danger">
+  
+                      <div *ngIf="email.errors?.['email']">
+                        Formato ingresado erroneo
+                      </div>
+  
+                      <div *ngIf="email.errors?.['required']">
+                        email es requerido es requerido
+                      </div>
+  
+  
+  
+                    </div> 
+                </div>
+                <div class="form-group">
+                  <!--PASS-->
+                  <input type="password" class="form-control rounded-left mb-3" placeholder="Password"
+                    formControlName="password" required autocomplete="off">
+                    
+                    <div *ngIf="password.invalid && (password.dirty || password.touched)" class="text-danger">
+  
+                      <div *ngIf="password.errors?.['required']">
+                        Ususario es requerido
+                      </div>
+  
+                    </div>
+                </div>
+                <div class="form-group">
+                  <button type="submit "
+                    class="form-control btn btn-success rounded " (click)="register()">Registrarse</button>
+                </div>
+                <div class="form-group d-md-flex">
+                  <div class="w-50">
+                    <label class="checkbox-wrap checkbox-primary">Remember Me
+                      <input type="checkbox" checked>
+                      <span class="checkmark"></span>
+                    </label>
+                  </div>
+                  <div class="w-50 text-md-right">
+                    <a href="" data-bs-toggle="modal" data-bs-target="#loginModal">Ya tienes cuenta</a>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+  
+  <!-- Modal login / Ventana emergen  te para inicio de sesión-->
+  <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Inicio de sesión</h5>
+          <button type="button" class="btn-close mr-1" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Email</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" autocomplete="off">
+              <div id="emailHelp" class="form-text">Nunca compartiremos su correo electrónico con nadie más.</div>
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label" >Contraseña</label>
+              <input type="password" class="form-control" id="exampleInputPassword1" autocomplete="off">
+
+            </div>
+
+
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary m-1" data-bs-dismiss="modal">Cerra</button>
+          <button type="submit" class="btn btn-success m-1">Iniciar sesión</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+      crossorigin="anonymous"></script>
+      <script src="js/jquery.min.js"></script>
+	<script src="js/popper.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/main.js"></script>
+
+</body>

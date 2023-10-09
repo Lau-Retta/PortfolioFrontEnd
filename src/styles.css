@@ -1,0 +1,318 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body::-webkit-scrollbar{
+    width: 12px;
+}
+body::-webkit-scrollbar-thumb{
+    background: #B2B2B3;
+    border-radius: 5px;
+}
+.cuerpo{
+    margin: 3rem;
+}
+
+.navbar-brand{
+    height: 11vh;
+   
+}
+.logo{
+    height: 119%;
+    width: auto;
+}
+.bg-gris{
+    background-color: #B2B2B3;
+    background-size: cover;
+  
+}
+.list-group-item{
+    --bs-list-group-bg:transparent;
+    --bs-list-group-border-color:transparent;
+    scale:75% ;
+    
+}
+
+i.fa-brands.fa-linkedin:hover{
+    color:#0077B7 !important;
+    
+}
+I.fa-brands.fa-square-github:hover{
+    color: #323332 !important;
+
+}
+
+i.fa-brands.fa-square-facebook:hover{
+    color: #3A549E!important;
+}
+i.fa-solid.fa-user-lock:hover{
+    color: azure !important;
+
+}
+i.fa-solid.fa-user:hover{
+    color: azure !important;
+
+}
+
+i.fa-brands.fa-square-instagram:hover{
+    background-image: linear-gradient(to top right, #F9CE01, #F80501,#7B38AE);
+     
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent!important;
+}
+
+section.banner{
+    width: 100%;
+    height: 42vh;
+    margin: auto;
+    margin-top: -1px;
+    min-width: 350px;
+    background-image: url(../src/assets/imag/banner_e.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    border-bottom: 5px solid #323332;
+    border-bottom-left-radius:5%;
+    border-bottom-right-radius:5%;
+}
+.foto_perfil{
+    width:50%;
+    margin: auto;
+    margin-top: -8rem;
+    margin-left: 5rem;
+    border: 4px solid #323332;
+}
+
+.nombre{
+    font-family: Verdana;
+    font-size: 100%;
+    margin-left: 5rem;
+}
+.puntitos{
+    width: 5%;
+}
+h4.developer{
+    font-family: Verdana;
+    font-size: 150%;
+}
+.acercade{
+    margin-top: -8.5% ;
+    
+    font-family: Verdana,italic;
+    font-size: 100%;
+}
+.ct{
+    margin-top: 2rem;
+    margin-left: 2vh;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.titulo_de_seccion{
+    color: #003C79;
+    font-family: Verdana;
+}
+
+.logo_empresa{
+    width:40%;
+    margin: 0 auto;
+    border-radius:50%;
+    border: 4px solid #323332; 
+}
+.d{
+    margin-left: -12px;
+}
+.fecha{
+    font-family: 'Montserrat', sans-serif;
+    
+    font-size: 100%;
+    margin: auto;
+    }
+.subtitulo_seccion{
+    font-family: 'Montserrat', sans-serif;
+    
+}
+.foto_ed{
+    width: 50%;
+    margin: 0 auto;
+    border-radius:50%;
+    border: 3px solid #323332; 
+    color:  #323332;    
+
+}
+.logo_empresa:hover{
+    transition: 400ms;
+    transform: translatey(-5%);
+    box-shadow: 0px 5px 12px #323332;
+}
+.foto_ed:hover{
+    transition: 400ms;
+    transform: translatey(-5%);
+    box-shadow: 0px 5px 12px #323332;
+}
+.progress {
+    margin-top: 1rem;
+}
+.titulo_barra{
+    color: #2596be;
+    font-size: 3vh;
+}
+img.card-img{
+    display: flex;
+   
+}
+.pie{
+    font-size: 100%!important;
+}
+.copyR{
+    font-size:75%;
+}
+footer{
+    color: #323332;
+    
+    background-color: #B2B2B3;
+    height: 12vh;
+}
+footer .col-6{
+    margin-top: 1%;
+    color: #323332;
+    font-size:100%;
+}
+/* Registro*/
+.Formulario{
+    height: 73.5vh
+}
+/* Panel de administrador*/
+.Panel{
+    height: 73.5vh
+
+}
+.Panel .card .nav{
+    color:rgb(252, 252, 252);
+    height: min-content;
+    background-color: #323332;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    height: 72vh;
+}
+.Panel .card .info{
+    color: white;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+.link{
+    width: 100%;
+    color: white!important;
+    font-size: 150%;
+    margin-top: 12px;
+}
+@media screen and (max-width:652px) {
+    .link{
+        font-size: 130%;
+    }
+    
+}
+a.link{
+    text-decoration: none;
+}
+a.link:hover{
+    color: #5fb2f2!important;
+}
+.item:hover{
+    background-color: #013d798f;
+    border-radius: 20px;
+}
+
+.logo_chico{
+    display: flex;
+    width: 8vh;
+
+}
+.list-group{
+    --bs-list-group-action-hover-bg: #f8f9fa00!important;
+    --bs-list-group-action-active-bg: #e9ecef00!important;
+}
+.nombre_redes{
+    font-family: 'Montserrat', sans-serif;
+    font-size:xx-large;
+}
+.muestra_de_imag{
+    width: 100%;
+    border-radius: 5px;
+}
+.azulito{
+    color: white!important;
+    background-color: #0077B7!important;
+}
+.azulito:hover{
+    background-color: #003C79 !important;
+}
+.link-btn{
+    margin-top:-5%;
+    height: 20%;
+    color: white!important;
+}
+.link-btn:hover{
+    color: #5fb2f2!important;
+}
+.skills{
+   
+    min-height: 100px;
+    height: 50%;
+}
+.submenu{
+    color: white!important;
+    font-size: 120%;
+}
+.submenu:hover{
+    color: #5fb2f2!important;
+}
+.list-group-item.active {
+    z-index: 3;
+    color: var(--bs-list-group-active-color);
+    background-color: #003d7900!important;
+    border-color: #003d7900!important;
+}
+.alturaCard{
+    width:35vh!important;
+}
+.experiencia_ct{
+    background-color: #1516173d!important;
+    border-radius: 20px;
+    border-style: solid;
+    border-color: #00000046!important;
+    border-width: 1px!important;
+    
+}
+.cursos{
+    background-color: #1516173d!important;
+    border-radius: 20px;
+    border-style: solid;
+    border-color: #00000046!important;
+    border-width: 1px!important;
+}
+.barras{
+    width: 4%;
+    min-width: 50px;
+}
+.container-exp{
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+.softskills{
+    font-family: Verdana;
+}
+.img_proyecto{
+    max-height:60%!important;
+    
+}
+.carousel-item {
+    transition-duration: 1s!important;
+    transition: transform 1s!important;
+}
+.ng-valid:not(form).ng-touched{
+    border-left: 5px solid green;
+  }
+  .ng-invalid:not(form).ng-touched{
+    border-left: 5px solid red;
+  }
