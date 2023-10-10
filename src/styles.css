@@ -26,13 +26,20 @@ body::-webkit-scrollbar-thumb{
     background-size: cover;
   
 }
+.list-group-item.item{
+    --bs-list-group-bg:transparent;
+    --bs-list-group-border-color:transparent;
+    scale:75% ;
+    min-width: 115%!important;
+    
+}
 .list-group-item{
     --bs-list-group-bg:transparent;
     --bs-list-group-border-color:transparent;
     scale:75% ;
     
+    
 }
-
 i.fa-brands.fa-linkedin:hover{
     color:#0077B7 !important;
     
@@ -83,6 +90,18 @@ section.banner{
     margin-top: -8rem;
     margin-left: 5rem;
     border: 4px solid #323332;
+}
+.imagen-panel{
+    max-width:98px;
+    margin: auto;
+    border: 1px solid  #323332 ;
+    border-radius: 4px ;
+}
+.imagen-panel.banner{
+    max-width:200px;
+    margin: auto;
+    border: 1px solid  #323332 ;
+    border-radius: 4px ;
 }
 
 .nombre{
@@ -269,6 +288,7 @@ a.link:hover{
 }
 .list-group-item.active {
     z-index: 3;
+    min-width: 142px;
     color: var(--bs-list-group-active-color);
     background-color: #003d7900!important;
     border-color: #003d7900!important;

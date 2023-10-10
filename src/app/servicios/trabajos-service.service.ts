@@ -19,7 +19,7 @@ export class TrabajosServiceService {
 
   //obtenemos el id del trabajo
   public detail(id:number):Observable<Trabajos>{
-    return this.httpClient.get<Trabajos>(this.EXP_URL + `/detail/${id}`)
+    return this.httpClient.get<Trabajos>(this.EXP_URL + `/traer/${id}`)
   }
   //guardar una nueva experiencia
   public save(trabajo: Trabajos):Observable<any>{

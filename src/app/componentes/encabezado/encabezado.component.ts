@@ -16,13 +16,14 @@ export class EncabezadoComponent implements OnInit {
   userLoginOn: boolean = false;
   UserData?: JwtDto;
   usuario: Usuario = new Usuario("","","","","","","","");
-  banner:String="../assets/imag/APLogo-20-20 (1).png";
+  banner:String="";
 
   constructor(public usuarioService: UsuarioService, private authService:AuthService, private router:Router) { 
   }
 
   ngOnInit(): void {
-    this.usuarioService.getUsuario().subscribe(data => {this.usuario = data})
+    this.usuarioService.getUsuario().subscribe(data => {this.usuario = data,
+      this.banner= data.banner})
 
     this.authService.currentUserLoginOn.subscribe({
       next: (userLoginOn) => {
@@ -33,9 +34,10 @@ export class EncabezadoComponent implements OnInit {
     this.authService.userData.subscribe(
       Data => {
        this.UserData = Data;
-      
+        
       }
      )
+   
   }
    
 
