@@ -1,8 +1,8 @@
 <body>
   <header>
     <!--ALERT-->
-    <div class="alert alert-warning alert-dismissible fade show" role="alert" [hidden]="!showAlert">
-      <strong>Holy guacamole!</strong> {{ alertText }}
+    <div class="alert alert-warning alert-dismissible fade show collapse" role="alert" [hidden]="!showAlert">
+      <strong>{{ alertText }}</strong>
       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
     <!--Barra de navegación-->
@@ -183,7 +183,7 @@
                   <label for="experiencias">Experiencia: </label>
                   <select name="experiencias" class="form-select" aria-label="Default select example" id=""
                     (change)="onTraerExperiencia($event)">
-                    <option class="emailHelp" selected>Selecciona una experiencia para editar</option>
+                    <option class="emailHelp" [value]="0" selected>Selecciona una experiencia para editar</option>
                     <option *ngFor="let trabajo of trabajos" [value]="trabajo.id">{{trabajo.empresa}}</option>
                   </select>
                   <!-- DATOS PARA EDITAR O CREAR-->
@@ -225,10 +225,39 @@
                     </div>
                   </form>
                   <div class="mt-2">
-                    <button type="submit" class="btn azulito m-1">Guardar</button>
-                    <button type="submit" class="btn btn-danger m-1">Eliminar</button>
+                    <button type="submit" class="btn azulito m-1" (click)="onCrearExperiencia()">Guardar</button>
+                    <button type="button" class="btn btn-danger" disabled *ngIf="!elimExp">
+                      Eliminar
+                    </button>
+                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModalCenter" *ngIf="elimExp"
+                    >
+                      Eliminar
+                    </button>
+                    
                   </div>
                 </form>
+              </div>
+
+
+              <!--MODAL PARA ELIMINAR EXPERIENCIA  -->
+              <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalCenterTitle">Eliminar Experiencia?</h5>
+                      <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <p>Seguro que desear eliminar la experiencia: <strong>{{trabajoEditar.value.empresa}}</strong> </p>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      <button type="submit" class="btn btn-danger" data-bs-dismiss="modal" (click)="deleteExperiencia()">Eliminar</button>
+                    </div>
+                  </div>
+                </div>
               </div>
               <!--Educación-->
               <div class="tab-pane fade" id="list-educacion" role="tabpanel" aria-labelledby="list-educacion-list">

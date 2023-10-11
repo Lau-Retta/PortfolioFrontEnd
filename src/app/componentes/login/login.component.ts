@@ -47,7 +47,7 @@ export class LoginComponent implements OnInit {
       this.authService.login(this.loginForm.value as LoginRequest).subscribe({
         next: (data) => {
 
-          window.sessionStorage.setItem("jtw", data.token as string);
+          window.sessionStorage.setItem("jwt", data.token as string);
           window.sessionStorage.setItem("usuario", data.username as string);
           window.sessionStorage.setItem("Role", data.role as string);
 
