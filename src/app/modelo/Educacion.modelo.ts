@@ -1,13 +1,13 @@
 export class Educacion{
     id?: number;
-    instituto:String;
-    titulo: String;
-    descripcion: String;
-    img_educacion: String;
-    inicio:String;
-    fin:String;
+    instituto:string;
+    titulo: string;
+    descripcion: string;
+    img_educacion: string;
+    inicio:string;
+    fin:string;
 
-    constructor(instituto:String, titulo: String, descripcion: String,img_educacion: String,inicio:String,fin:String){
+    constructor(instituto:string, titulo: string, descripcion: string,img_educacion: string,inicio:string,fin:string){
        this.instituto= instituto;
        this.titulo=titulo;
        this.descripcion=descripcion;

@@ -1,8 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl } from '@angular/forms';
 import { empty } from 'rxjs';
+import { Certificado } from 'src/app/modelo/Certificados.modelo';
+import { Educacion } from 'src/app/modelo/Educacion.modelo';
 import { Trabajos } from 'src/app/modelo/Trabajo.modelo';
 import { Usuario } from 'src/app/modelo/Usuario.modelo';
+import { CertificadoService } from 'src/app/servicios/certificado.service';
+import { EducacionService } from 'src/app/servicios/educacion.service';
 import { TrabajosServiceService } from 'src/app/servicios/trabajos-service.service';
 import { UsuarioService } from 'src/app/servicios/usuario.service';
 
@@ -12,6 +16,11 @@ import { UsuarioService } from 'src/app/servicios/usuario.service';
   styleUrls: ['./panel-administrador.component.css']
 })
 export class PanelAdministradorComponent implements OnInit {
+  //variables genericas
+
+  alertText: String = '';
+  showAlert: boolean = false;
+  //variables de usurio
   usuario: Usuario = new Usuario("", "", "", "", "", "", "", "");
   token: String = "";
   usuarioEditado = this.formBuilder.group({
@@ -30,8 +39,7 @@ export class PanelAdministradorComponent implements OnInit {
 
   //variables de experiencias
   trabajos: Trabajos[] = [];
-  n: number = -1;
-  meses: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+  indExp: number = -1;
   trabajoEditar = this.formBuilder.group({
     empresa: [""],
     descripcion: [""],
@@ -41,11 +49,34 @@ export class PanelAdministradorComponent implements OnInit {
     url_info: [""]
 
   })
-  alertText: String = '';
-  showAlert: boolean = false;
-  elimExp:boolean=false;
+  elimExp: boolean = false;
+  //variables de Educacion:
+  estudios: Educacion[] = [];
+  indEdu: number = -1;
+  educacionEditar = this.formBuilder.group({
+    instituto: [""],
+    descripcion: [""],
+    titulo: [""],
+    fin: [""],
+    img_educacion: [""],
+    inicio: [""]
 
-  constructor(private usuarioService: UsuarioService, private formBuilder: FormBuilder, private trabajoService: TrabajosServiceService) { }
+  })
+  elimEstudio: boolean = false;
+  //variables para cursos
+  certificados: Certificado[]=[];
+  indCerti:number=-1;
+  CertificadoEditar = this.formBuilder.group({
+    descripcion: [""], 
+    certificado: [""]
+  })
+  NuevoCertificado = this.formBuilder.group({
+    descripcion: [""], 
+    certificado: [""]
+  })
+
+  constructor(private usuarioService: UsuarioService, private formBuilder: FormBuilder, private trabajoService: TrabajosServiceService,
+    private educacionService: EducacionService, private cursosService:CertificadoService) { }
 
 
   ngOnInit(): void {
@@ -68,11 +99,19 @@ export class PanelAdministradorComponent implements OnInit {
 
         this.prefoto = data.img;
       this.prebanner = data.banner;
-
-      //experiencias
-      this.cargarExperiencia();
     })
+    //experiencias
+    this.cargarExperiencia();
+    //educacion
+    this.cargarEducacion();
+    //cursos
+    this.carcarCursos();
+  }
 
+  reseteoAlert(){
+    this.showAlert = false;
+    console.log(this.showAlert);
+    
   }
 
   //funciones para Perfil
@@ -100,7 +139,6 @@ export class PanelAdministradorComponent implements OnInit {
 
   }
 
-
   // funciones para experiencias
   cargarExperiencia(): void {
     this.trabajoService.getTrabajo().subscribe(
@@ -108,12 +146,10 @@ export class PanelAdministradorComponent implements OnInit {
     )
   }
 
-
-
   onTraerExperiencia(event: any): void {
-    this.n = event.target.value - 1; // Almacena el valor seleccionado en 'n'   
-    if (this.n > -1) {
-      this.trabajoService.detail(event.target.value).subscribe( data=>{
+    this.indExp = event.target.value - 1; // Almacena el valor seleccionado en 'n'   
+    if (this.indExp > -1) {
+      this.trabajoService.detail(event.target.value).subscribe(data => {
         this.trabajoEditar = this.formBuilder.group({
           empresa: [data.empresa],
           descripcion: [data.descripcion],
@@ -122,22 +158,23 @@ export class PanelAdministradorComponent implements OnInit {
           img_empresa: [data.img_empresa],
           url_info: [data.url_info]
         })
-        this.elimExp=true;
+        this.elimExp = true;
       })
-   
+
     }
-    else{
+    else {
       this.trabajoEditar.reset();
-      this.elimExp=false;
+      this.elimExp = false;
     }
 
-    
+
   }
+
   onCrearExperiencia() {
     console.log(this.trabajoEditar.value.empresa);
-    console.log(this.n);
-    
-    if (this.n == -1) {
+    console.log(this.indExp);
+
+    if (this.indExp == -1) {
       this.trabajoService.save(this.trabajoEditar.value as Trabajos).subscribe(
         (response) => {
           // Maneja la respuesta exitosa aquí
@@ -160,9 +197,9 @@ export class PanelAdministradorComponent implements OnInit {
       )
     }
     else {
-      
-      
-      this.trabajoService.update(this.n+1, this.trabajoEditar.value as Trabajos).subscribe(
+
+
+      this.trabajoService.update(this.indExp + 1, this.trabajoEditar.value as Trabajos).subscribe(
         (response) => {
           // Maneja la respuesta exitosa aquí
           console.log('Respuesta exitosa:', response);
@@ -184,10 +221,10 @@ export class PanelAdministradorComponent implements OnInit {
     }
   }
 
-  deleteExperiencia(){
-    console.log(this.n+1);
-    
-    this.trabajoService.delete(this.n+1).subscribe(
+  deleteExperiencia() {
+    console.log(this.indExp + 1);
+
+    this.trabajoService.delete(this.indExp + 1).subscribe(
       (response) => {
         // Maneja la respuesta exitosa aquí
         console.log('Respuesta exitosa:', response);
@@ -196,7 +233,7 @@ export class PanelAdministradorComponent implements OnInit {
         // Muestra la alerta
         this.showAlert = true;
         this.trabajoEditar.reset();
-        this.elimExp=false;
+        this.elimExp = false;
       },
       (error) => {
         // Maneja el error aquí
@@ -208,6 +245,116 @@ export class PanelAdministradorComponent implements OnInit {
         this.showAlert = true;
       }
     )
+  }
+  //funciones para Educacion
+  cargarEducacion(): void {
+    this.educacionService.getEducacion().subscribe(data => {
+      this.estudios = data;
+    })
+  }
+
+  onTraerEstudios(event: any): void {
+    this.indEdu = event.target.value - 1; // Almacena el valor seleccionado en 'n'   
+    if (this.indEdu > -1) {
+      this.educacionService.detail(event.target.value).subscribe(data => {
+        this.educacionEditar = this.formBuilder.group({
+          instituto: [data.instituto],
+          descripcion: [data.descripcion],
+          titulo: [data.titulo],
+          fin: [data.fin],
+          img_educacion: [data.img_educacion],
+          inicio: [data.inicio]
+        })
+        this.elimEstudio = true;
+
+      })
+
+
+    }
+    else {
+      this.educacionEditar.reset();
+      this.elimEstudio = false;
+    }
+  }
+  CrearEstudio(): void {
+    if (this.indEdu == -1) {
+      this.educacionService.save(this.educacionEditar.value as Educacion).subscribe(
+        (response) => {
+          // Maneja la respuesta exitosa aquí
+          console.log('Respuesta exitosa:', response.message);
+
+          this.alertText = response.mensaje as String;
+
+          // Muestra la alerta
+          this.showAlert = true;
+          this. cargarEducacion()
+          
+        },
+        (error) => {
+          // Maneja el error aquí
+          console.error('Error en la solicitud:', error);
+          // Configura el texto de la alerta
+          this.alertText = 'Error en la solicitud: ' + error.message;
+
+          // Muestra la alerta
+          this.showAlert = true;
+        }
+      )
+    }
+    else {
+
+
+      this.educacionService.update(this.indEdu + 1, this.educacionEditar.value as Educacion).subscribe(
+        (response) => {
+          // Maneja la respuesta exitosa aquí
+          console.log('Respuesta exitosa:', response);
+
+          this.alertText = response.mensaje as String;
+          // Muestra la alerta
+          this.showAlert = true;
+          this. cargarEducacion()
+        },
+        (error) => {
+          // Maneja el error aquí
+          console.error('Error en la solicitud:', error);
+          // Configura el texto de la alerta
+          this.alertText = 'Error en la solicitud: ' + error.message;
+
+          // Muestra la alerta
+          this.showAlert = true;
+        }
+      )
+    }
+  }
+  eliminarEducacion(){
+    this.educacionService.delete(this.indEdu+1).subscribe(
+      (response) => {
+        // Maneja la respuesta exitosa aquí
+        console.log('Respuesta exitosa:', response);
+
+        this.alertText = response.mensaje as String;
+        // Muestra la alerta
+        this.showAlert = true;
+        this.trabajoEditar.reset();
+        this.elimExp = false;
+      },
+      (error) => {
+        // Maneja el error aquí
+        console.error('Error en la solicitud:', error);
+        // Configura el texto de la alerta
+        this.alertText = 'Error en la solicitud: ' + error.message;
+
+        // Muestra la alerta
+        this.showAlert = true;
+      }
+    )
+  }
+
+  //funciones para cursos
+  carcarCursos():void{
+    this.cursosService.getCertificados().subscribe(data =>{
+      this.certificados=data;
+    })
   }
 }
 

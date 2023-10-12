@@ -3,7 +3,8 @@
     <!--ALERT-->
     <div class="alert alert-warning alert-dismissible fade show collapse" role="alert" [hidden]="!showAlert">
       <strong>{{ alertText }}</strong>
-      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"
+        (click)="reseteoAlert()"></button>
     </div>
     <!--Barra de navegación-->
     <nav class="navbar navbar-expand-lg bg-gris">
@@ -229,18 +230,19 @@
                     <button type="button" class="btn btn-danger" disabled *ngIf="!elimExp">
                       Eliminar
                     </button>
-                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModalCenter" *ngIf="elimExp"
-                    >
+                    <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                      data-bs-target="#exampleModalCenter" *ngIf="elimExp">
                       Eliminar
                     </button>
-                    
+
                   </div>
                 </form>
               </div>
 
 
               <!--MODAL PARA ELIMINAR EXPERIENCIA  -->
-              <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+              <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                   <div class="modal-content">
                     <div class="modal-header">
@@ -250,161 +252,213 @@
                       </button>
                     </div>
                     <div class="modal-body">
-                      <p>Seguro que desear eliminar la experiencia: <strong>{{trabajoEditar.value.empresa}}</strong> </p>
+                      <p>Seguro que desear eliminar la experiencia: <strong>{{trabajoEditar.value.empresa}}</strong>
+                      </p>
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                      <button type="submit" class="btn btn-danger" data-bs-dismiss="modal" (click)="deleteExperiencia()">Eliminar</button>
+                      <button type="submit" class="btn btn-danger" data-bs-dismiss="modal"
+                        (click)="deleteExperiencia()">Eliminar</button>
                     </div>
                   </div>
                 </div>
               </div>
+
+
               <!--Educación-->
               <div class="tab-pane fade" id="list-educacion" role="tabpanel" aria-labelledby="list-educacion-list">
-                <form class="m-3">
+                <form class="m-3" [formGroup]="educacionEditar">
+                  <label for="exampleInputEmail1" class="form-label">Esctudios:</label>
+                  <select name="experiencias" class="form-select" aria-label="Default select example" id=""
+                    (change)="onTraerEstudios($event)">
+                    <option class="emailHelp" [value]="0" selected>Selecciona una opción para editar</option>
+                    <option *ngFor="let estudio of estudios" [value]="estudio.id">{{estudio.instituto}}</option>
+                  </select>
+
                   <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Escuela o Institución</label>
-                    <input type="text" class="form-control" id="Empresa" aria-describedby="emailHelp">
+                    <input type="text" class="form-control" id="Empresa" aria-describedby="emailHelp" autocomplete="off"
+                      formControlName="instituto">
                   </div>
                   <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Titulo académico</label>
-                    <input type="text" class="form-control" id="Empresa" aria-describedby="emailHelp">
+                    <input type="text" class="form-control" id="Empresa" aria-describedby="emailHelp"
+                      formControlName="titulo" autocomplete="off">
                   </div>
                   <div class="row g-3">
-                    <div class="col-md-3">
-                      <label for="inputState" class="form-label">Mes de inico</label>
-                      <select id="inputState" class="form-select">
-                        <option selected>Selecciona</option>
-                        <option>Actualmente</option>
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                        <option>6</option>
-                        <option>7</option>
-                        <option>8</option>
-                        <option>9</option>
-                        <option>10</option>
-                        <option>11</option>
-                        <option>12</option>
-                      </select>
-                    </div>
-                    <div class="col-md-3">
-                      <label for="inputZip" class="form-label">Año de inicio</label>
-                      <input type="number" class="form-control" id="inputZip">
-                    </div>
 
                     <div class="col-md-3">
-                      <label for="inputState" class="form-label">Mes de finalización</label>
-                      <select id="inputState" class="form-select">
-                        <option selected>Selecciona</option>
-                        <option>Actualmente</option>
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                        <option>6</option>
-                        <option>7</option>
-                        <option>8</option>
-                        <option>9</option>
-                        <option>10</option>
-                        <option>11</option>
-                        <option>12</option>
-                      </select>
+                      <label for="inputZip" class="form-label">Fecha de inicio</label>
+                      <input type="text" class="form-control" id="inputZip" formControlName="inicio" autocomplete="off">
                     </div>
+
+
                     <div class="col-md-3">
-                      <label for="inputZip" class="form-label">Año de finalización</label>
-                      <input type="number" class="form-control" id="inputZip">
+                      <label for="inputZip" class="form-label">Fecha de finalización</label>
+                      <input type="text" class="form-control" id="inputZip" formControlName="fin" autocomplete="off">
                     </div>
                   </div>
 
-                  <label for="inputZip" class="form-label mt-3">Escudo de la escuela / Universidad / Institución</label>
-                  <div class="input-group mt-1">
-                    <input type="file" class="form-control" id="inputGroupFile04"
-                      aria-describedby="inputGroupFileAddon04" aria-label="Upload">
-                    <button class="btn btn-outline-secondary" type="button" id="inputGroupFileAddon04">Subir</button>
+                  <div class="form-floating mt-3">
+                    <textarea class="form-control" placeholder="Leave a comment here" id="info" style="height: 200px"
+                      formControlName="descripcion" autocomplete="off"></textarea>
+
+                    <label for="floatingTextarea2">Tareas</label>
                   </div>
+
+                  <div class="input-group-text mt-2">
+                    <label for="logo_empresa" class="m-2">Escudo de la escuela / Universidad / Institución </label>
+                    <input type="text" class="form-control" id="inputGroupFile04" name="logo_empresa"
+                      aria-describedby="inputGroupFileAddon04" aria-label="Upload" formControlName="img_educacion"
+                      placeholder="">
+                  </div>
+                  <!--botones-->
                   <div class="mt-2">
-                    <button type="submit" class="btn azulito ">Guardar</button>
-                    <button type="submit" class="btn btn-danger">Eliminar</button>
+                    <button type="button" class="btn azulito m-1" (click)="CrearEstudio()">Guardar</button>
+                    <button type="button" class="btn btn-danger" disabled *ngIf="!elimEstudio">
+                      Eliminar
+                    </button>
+                    <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                      data-bs-target="#educacionModalCenter" *ngIf="elimEstudio">
+                      Eliminar
+                    </button>
+
                   </div>
                 </form>
               </div>
+              <!--MODAL PARA ELIMINAR EDUCACION  -->
+              <div class="modal fade" id="educacionModalCenter" tabindex="-1" role="dialog"
+                aria-labelledby="educacionModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalCenterTitle">Eliminar esta experiencia educativa</h5>
+                      <button type="button" class="close btn" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <p>Seguro que desear eliminar el estudio: <strong>{{educacionEditar.value.titulo}}</strong>
+                      </p>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      <button type="submit" class="btn btn-danger" data-bs-dismiss="modal"
+                        (click)="eliminarEducacion()">Eliminar</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
               <!--Cursos-->
               <div class="tab-pane fade" id="list-cursos" role="tabpanel" aria-labelledby="list-cursos-list">
-                <form class="m-3">
-                  <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Escuela o Institución</label>
-                    <input type="text" class="form-control" id="Empresa" aria-describedby="emailHelp">
-                  </div>
-                  <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Titulo académico</label>
-                    <input type="text" class="form-control" id="Empresa" aria-describedby="emailHelp">
-                  </div>
-                  <div class="row g-3">
-                    <div class="col-md-3">
-                      <label for="inputState" class="form-label">Mes de inico</label>
-                      <select id="inputState" class="form-select">
-                        <option selected>Selecciona</option>
-                        <option>Actualmente</option>
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                        <option>6</option>
-                        <option>7</option>
-                        <option>8</option>
-                        <option>9</option>
-                        <option>10</option>
-                        <option>11</option>
-                        <option>12</option>
-                      </select>
-                    </div>
-                    <div class="col-md-3">
-                      <label for="inputZip" class="form-label">Año de inicio</label>
-                      <input type="number" class="form-control" id="inputZip">
-                    </div>
+                <button class="btn azulito  m-3" data-bs-toggle="modal"
+                data-bs-target="#certificadoModalCenter">+ Agregar</button>
+                <div class="m-3 d-flex" style="min-width: 325px;">
+                  <div class="card card-certificado" *ngFor="let certificado of certificados">
+                    <img src="{{certificado.certificado}}" class="card-img-top"
+                      alt="Certificado de: {{certificado.descripcion}}">
+                      
+                    <div class="card-body">
 
-                    <div class="col-md-3">
-                      <label for="inputState" class="form-label">Mes de finalización</label>
-                      <select id="inputState" class="form-select">
-                        <option selected>Selecciona</option>
-                        <option>Actualmente</option>
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                        <option>6</option>
-                        <option>7</option>
-                        <option>8</option>
-                        <option>9</option>
-                        <option>10</option>
-                        <option>11</option>
-                        <option>12</option>
-                      </select>
-                    </div>
-                    <div class="col-md-3">
-                      <label for="inputZip" class="form-label">Año de finalización</label>
-                      <input type="number" class="form-control" id="inputZip">
-                    </div>
-                  </div>
+                      <h5 class="card-text row m-2 ">{{certificado.descripcion}}</h5>
+                      <button type="button" class="btn azulito m-1" data-bs-toggle="modal"
+                      data-bs-target="#EditcertificadoModalCenter">Editar</button>
 
-                  <label for="inputZip" class="form-label mt-3">Certificado / Diploma del curso</label>
-                  <div class="input-group mt-1">
-                    <input type="file" class="form-control" id="inputGroupFile04"
-                      aria-describedby="inputGroupFileAddon04" aria-label="Upload">
-                    <button class="btn btn-outline-secondary" type="button" id="inputGroupFileAddon04">Subir</button>
+                      <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                        data-bs-target="#ElimCertificadoModalCenter">
+                        Eliminar
+                      </button>
+
+                    </div>
                   </div>
-                  <div class="mt-2">
-                    <button type="submit" class="btn azulito ">Guardar</button>
-                    <button type="submit" class="btn btn-danger">Eliminar</button>
-                  </div>
-                </form>
+                </div>
               </div>
+              <!--MODAL PARA ELIMINAR CERTIFICADO  -->
+              <div class="modal fade" id="ElimCertificadoModalCenter" tabindex="-1" role="dialog"
+                aria-labelledby="ElimCertificadoModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalCenterTitle">Eliminar esta experiencia educativa</h5>
+                      <button type="button" class="close btn" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <p>Seguro que desear eliminar el estudio: <strong>{{educacionEditar.value.titulo}}</strong>
+                      </p>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      <button type="submit" class="btn btn-danger" data-bs-dismiss="modal"
+                        (click)="eliminarEducacion()">Eliminar</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!--MODAL PARA EDITAR EDUCACION  -->
+              <div class="modal fade" id="EditcertificadoModalCenter" tabindex="-1" role="dialog"
+                aria-labelledby="EditcertificadoModalCenter" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                  
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalCenterTitle">Agregar Certificado</h5>
+                      <button type="button" class="close btn" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body" >
+                      <form action="" [formGroup]="CertificadoEditar">
+                      <label class="m-1">Nombre del Curso:</label>
+                      <input type="text"  class="form-control" id="nombreCurso" formControlName="descripcion">
+                      <label class="m-1">Url de la imgen del certificado</label>
+                      <input type="text" class="form-control mt-2" id="inputGroupFile04" name="img_certificado"
+                      aria-describedby="inputGroupFileAddon04" aria-label="Upload" formControlName="certificado"
+                      placeholder="" formControlName="certificado"> 
+                      </form>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      <button type="submit" class="btn btn-primary" data-bs-dismiss="modal"
+                        (click)="null">Guardar</button>
+                    </div>
+                  </div>
+                
+                </div>
+              </div>
+               <!--MODAL PARA AGREGAR EDUCACION  -->
+               <div class="modal fade" id="certificadoModalCenter" tabindex="-1" role="dialog"
+               aria-labelledby="certificadoModalCenter" aria-hidden="true">
+               <div class="modal-dialog modal-dialog-centered" role="document">
+                 
+                 <div class="modal-content">
+                   <div class="modal-header">
+                     <h5 class="modal-title" id="exampleModalCenterTitle">Agregar Certificado</h5>
+                     <button type="button" class="close btn" data-bs-dismiss="modal" aria-label="Close">
+                       <span aria-hidden="true">&times;</span>
+                     </button>
+                   </div>
+                   <div class="modal-body" >
+                     <form action="" [formGroup]="CertificadoEditar">
+                     <label class="m-1">Nombre del Curso:</label>
+                     <input type="text"  class="form-control" id="nombreCurso" formControlName="descripcion">
+                     <label class="m-1">Url de la imgen del certificado</label>
+                     <input type="text" class="form-control mt-2" id="inputGroupFile04" name="img_certificado"
+                     aria-describedby="inputGroupFileAddon04" aria-label="Upload" formControlName="certificado"
+                     placeholder="" formControlName="certificado"> 
+                     </form>
+                   </div>
+                   <div class="modal-footer">
+                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                     <button type="submit" class="btn btn-primary" data-bs-dismiss="modal"
+                       (click)="null">Guardar</button>
+                   </div>
+                 </div>
+               
+               </div>
+             </div>
               <!--Habilidades -->
               <div class="tab-pane fade" id="list-habilidades" role="tabpanel" aria-labelledby="list-habilidades-list">
                 <!-- Habilida Duras -->
