@@ -63,17 +63,7 @@ export class PanelAdministradorComponent implements OnInit {
 
   })
   elimEstudio: boolean = false;
-  //variables para cursos
-  certificados: Certificado[]=[];
-  indCerti:number=-1;
-  CertificadoEditar = this.formBuilder.group({
-    descripcion: [""], 
-    certificado: [""]
-  })
-  NuevoCertificado = this.formBuilder.group({
-    descripcion: [""], 
-    certificado: [""]
-  })
+
 
   constructor(private usuarioService: UsuarioService, private formBuilder: FormBuilder, private trabajoService: TrabajosServiceService,
     private educacionService: EducacionService, private cursosService:CertificadoService) { }
@@ -105,7 +95,7 @@ export class PanelAdministradorComponent implements OnInit {
     //educacion
     this.cargarEducacion();
     //cursos
-    this.carcarCursos();
+    
   }
 
   reseteoAlert(){
@@ -350,12 +340,7 @@ export class PanelAdministradorComponent implements OnInit {
     )
   }
 
-  //funciones para cursos
-  carcarCursos():void{
-    this.cursosService.getCertificados().subscribe(data =>{
-      this.certificados=data;
-    })
-  }
+ 
 }
 
 

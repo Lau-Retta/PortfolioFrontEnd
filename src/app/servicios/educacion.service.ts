@@ -16,7 +16,7 @@ export class EducacionService {
     return this.httpClient.get<Educacion[]>(this.EDU_URL+'/lista');
   }
 
-   //obtenemos el id del educacion
+   //obtenemos educacion x id
    public detail(id:number):Observable<Educacion>{
 
     return this.httpClient.get<Educacion>(this.EDU_URL + `/traer/${id}`)

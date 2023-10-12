@@ -15,6 +15,9 @@ import { PanelAdministradorComponent } from './pages/panel-administrador/panel-a
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PanelCursosComponent } from './pages/panel-administrador/panel-cursos/panel-cursos.component';
+import { PagesModule } from './pages/pages.module';
+import { PanelHabilidadesComponent } from './pages/panel-administrador/panel-habilidades/panel-habilidades.component';
 
 
 
@@ -32,8 +35,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     LoginComponent,
     InicioComponent,
     RegistroComponent,
-    PanelAdministradorComponent
-  
+    PanelAdministradorComponent,
+    PanelCursosComponent,
+    PanelHabilidadesComponent
+    
 
   ],
   imports: [
@@ -42,6 +47,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule
+    
    
   ],
   providers: [],

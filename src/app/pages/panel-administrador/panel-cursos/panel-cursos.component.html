@@ -1,0 +1,111 @@
+<!--Cursos-->
+<div>
+    <button class="btn azulito  m-3" data-bs-toggle="modal"
+    data-bs-target="#certificadoModalCenter">+ Agregar</button>
+    <div class="m-3 d-flex" style="min-width: 325px;">
+      <div class="card card-certificado" *ngFor="let certificado of certificados">
+        <img src="{{certificado.certificado}}" class="card-img-top"
+          alt="Certificado de: {{certificado.descripcion}}">
+          
+        <div class="card-body">
+
+          <h5 class="card-text row m-2 ">{{certificado.descripcion}}</h5>
+          <button type="button" class="btn azulito m-1" data-bs-toggle="modal"
+          data-bs-target="#EditcertificadoModalCenter">Editar</button>
+
+          <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+            data-bs-target="#ElimCertificadoModalCenter">
+            Eliminar
+          </button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--MODAL PARA ELIMINAR CERTIFICADO  -->
+  <div class="modal fade" id="ElimCertificadoModalCenter" tabindex="-1" role="dialog"
+    aria-labelledby="ElimCertificadoModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalCenterTitle">Eliminar Curso</h5>
+          <button type="button" class="close btn" data-bs-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>
+            Seguro que deseas eliminar el certificado?
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-danger" data-bs-dismiss="modal"
+            (click)="null">Eliminar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--MODAL PARA EDITAR CERTIFICADO  -->
+  <div class="modal fade" id="EditcertificadoModalCenter" tabindex="-1" role="dialog"
+    aria-labelledby="EditcertificadoModalCenter" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalCenterTitle">Agregar Certificado</h5>
+          <button type="button" class="close btn" data-bs-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" >
+          <form action="" [formGroup]="CertificadoEditar">
+          <label class="m-1">Nombre del Curso:</label>
+          <input type="text"  class="form-control" id="nombreCurso" formControlName="descripcion">
+          <label class="m-1">Url de la imgen del certificado</label>
+          <input type="text" class="form-control mt-2" id="inputGroupFile04" name="img_certificado"
+          aria-describedby="inputGroupFileAddon04" aria-label="Upload" formControlName="certificado"
+          placeholder="" formControlName="certificado"> 
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary" data-bs-dismiss="modal"
+            (click)="null">Guardar</button>
+        </div>
+      </div>
+    
+    </div>
+  </div>
+   <!--MODAL PARA AGREGAR CERTIFICADO  -->
+   <div class="modal fade" id="certificadoModalCenter" tabindex="-1" role="dialog"
+   aria-labelledby="certificadoModalCenter" aria-hidden="true">
+   <div class="modal-dialog modal-dialog-centered" role="document">
+     
+     <div class="modal-content">
+       <div class="modal-header">
+         <h5 class="modal-title" id="exampleModalCenterTitle">Agregar Certificado</h5>
+         <button type="button" class="close btn" data-bs-dismiss="modal" aria-label="Close">
+           <span aria-hidden="true">&times;</span>
+         </button>
+       </div>
+       <div class="modal-body" >
+         <form action="" [formGroup]="CertificadoEditar">
+         <label class="m-1">Nombre del Curso:</label>
+         <input type="text"  class="form-control" id="nombreCurso" formControlName="descripcion">
+         <label class="m-1">Url de la imgen del certificado</label>
+         <input type="text" class="form-control mt-2" id="inputGroupFile04" name="img_certificado"
+         aria-describedby="inputGroupFileAddon04" aria-label="Upload" formControlName="certificado"
+         placeholder="" formControlName="certificado"> 
+         </form>
+       </div>
+       <div class="modal-footer">
+         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+         <button type="submit" class="btn btn-primary" data-bs-dismiss="modal"
+           (click)="null">Guardar</button>
+       </div>
+     </div>
+   
+   </div>
+ </div>
+ 

@@ -14,6 +14,7 @@ export class NewEspecienciaComponent implements OnInit {
   inicio: string = "";
   fin: string = "";
   img_empresa : string= "";
+  url_info : string= "";
 
   constructor(private trabajosService: TrabajosServiceService, private router: Router) { }
 
@@ -21,7 +22,7 @@ export class NewEspecienciaComponent implements OnInit {
 
   }
   onCreate():void{
-    const exp = new Trabajos(this.empresa, this.descripcion ,this.inicio,this.fin,this.img_empresa);
+    const exp = new Trabajos(this.empresa, this.descripcion ,this.inicio,this.fin,this.img_empresa, this.url_info);
 
     this.trabajosService.save(exp).subscribe(data => {
       alert("Experiencia añadida");

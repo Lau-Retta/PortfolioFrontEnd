@@ -1,7 +1,7 @@
 export class Habilidad{
     id?: number;
     nivel: number;
-    habilidad:String;
+    habilidad:string;
 
     constructor( nivel:number, hablidad:string){
       this.nivel = nivel;
