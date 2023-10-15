@@ -11,20 +11,22 @@ import { SoftSkillsService } from 'src/app/servicios/soft-skills.service';
   styleUrls: ['./panel-habilidades.component.css']
 })
 export class PanelHabilidadesComponent implements OnInit {
-  indicador:number=0;
-  tenoNueva:boolean=true;
-  tecnologias: Habilidad[]=[];
-  habilidades:Habilidades[]=[];
+  indicador: number = 0;
+
+  tenoNueva: boolean = true;
+  hablidadNueva: boolean = true;
+  tecnologias: Habilidad[] = [];
+  habilidades: Habilidades[] = [];
   tecnoEditar = this.formBuilder.group({
-    habilidad:[''],
-    nivel:[0]
+    habilidad: [''],
+    nivel: [0]
   })
 
-  habilidadEditar= this.formBuilder.group({
-    hablidadBlanda:[]
+  habilidadEditar = this.formBuilder.group({
+    habilidad: [""]
   })
 
-  constructor(private hardService:HardSkillsService, private formBuilder:FormBuilder, private softService: SoftSkillsService) { }
+  constructor(private hardService: HardSkillsService, private formBuilder: FormBuilder, private softService: SoftSkillsService) { }
 
 
 
@@ -34,69 +36,133 @@ export class PanelHabilidadesComponent implements OnInit {
     this.cargarHabilidad();
   }
 
-  cargarTecnologias(){
-   this.hardService.getHabilidades().subscribe(data => {
-    this.tecnologias = data;
-   });
+  selector(id: any) {
+    this.indicador = id;
+    console.log("id"+id);
+    console.log("iundicador:"+this.indicador);
+    
+    
   }
-  resetForm(){
+  resetForm() {
     this.tecnoEditar.reset()
   }
-  GuardarTecno(){
-    if(this.tenoNueva){
-      this.hardService.save(this.tecnoEditar.value as Habilidad).subscribe(
-        (response)=>{ console.log(response);
-        },
-        (error)=>{console.log(error);
-        })
-    }
-    else{
-      this.hardService.update(this.indicador,this.tecnoEditar.value as  Habilidad).subscribe(
-        (response)=>{ console.log(response);
-        },
-        (error)=>{console.log(error);
-        })
-      
-    }
-  }
-  //funcion para cargar formulario para editar hardSkill
-  EditarTecno(id:any){
-    this.tecnoEditar = this.formBuilder.group({
-      habilidad:[""],
-      nivel:[0]
-    })
+  Guardar(skill: number) {
+    if (skill == 1) {
+      if (this.tenoNueva) {
+        this.hardService.save(this.tecnoEditar.value as Habilidad).subscribe(
+          (response) => {
+            this.cargarTecnologias()
+            console.log(response);
+          },
+          (error) => {
+            console.log(error);
+          })
+        
+      }
+      else {
+        this.hardService.update(this.indicador, this.tecnoEditar.value as Habilidad).subscribe(
+          (response) => {
+            this.cargarTecnologias()
+            console.log(response);
+          },
+          (error) => {
+            console.log(error);
+          })
 
-    this.hardService.detail(id as number).subscribe(data=>{
+      }
+    }
+
+    if (skill == 0) {
+
+      if (this.hablidadNueva) {
+        this.softService.save(this.habilidadEditar.value as Habilidades).subscribe(
+          (response) => {
+            this.cargarHabilidad()
+            console.log(response);
+          },
+          (error) => {
+            console.log(error);
+          })
+      }
+      else {
+        this.softService.update(this.indicador, this.habilidadEditar.value as Habilidades).subscribe(
+          (response) => {
+            this.cargarHabilidad()
+            console.log(response);
+          },
+          (error) => {
+            console.log(error);
+          })
+
+      }
+    }
+    
+  }
+  cargarHabilidad() {
+    this.softService.getHabilidades().subscribe(data => {
+      this.habilidades = data;
+    });
+  }
+  cargarTecnologias() {
+    this.hardService.getHabilidades().subscribe(data => {
+      this.tecnologias = data;
+    });
+  }
+  
+
+
+  //funcion para cargar formulario para editar HardSkills
+  EditarTecno(id: any) {
+    this.tecnoEditar.reset();
+
+    this.hardService.detail(id as number).subscribe(data => {
       this.tecnoEditar = this.formBuilder.group({
-        habilidad:[data.habilidad],
-        nivel:[data.nivel]
+        habilidad: [data.habilidad],
+        nivel: [data.nivel]
       })
     })
     this.tenoNueva = false;
     this.indicador = id;
     console.log(id);
-    
+
   }
-  selector(id:any){
-    this.indicador=id;
-  }
-  EliminarTecno(){
-    this.hardService.delete( this.indicador).subscribe(
-      (resp)=>{
+  
+  EliminarTecno() {
+    this.hardService.delete(this.indicador).subscribe(
+      (resp) => {
+        this.cargarTecnologias()
         console.log(resp);
       },
-      (err)=>{
+      (err) => {
         console.log(err);
-        
+
       }
     )
-  } 
+    
+  }
 
+  //funcion para cargar formulario para editar softSkills
+  EditarHabilidad(id:any){
+    this.habilidadEditar.reset();
 
-  cargarHabilidad(){
-    this.softService.getHabilidades().subscribe(data => {
-     this.habilidades = data;
-    });
-   }
+    this.softService.detail(id).subscribe(data =>{
+      this.habilidadEditar = this.formBuilder.group({
+        habilidad:[data.habilidad]
+      })
+    })
+  }
 
+  EliminiarHablidad(){
+    this.softService.delete(this.indicador).subscribe(
+      (resp) => {
+        this.cargarHabilidad()
+        console.log(resp);
+      },
+      (err) => {
+        console.log(err);
+
+      }
+    )
+    
+  }
 }

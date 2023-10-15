@@ -12,12 +12,13 @@ import { InicioComponent } from './pages/inicio/inicio.component';
 import { RegistroComponent } from './pages/registro/registro.component';
 import { PanelAdministradorComponent } from './pages/panel-administrador/panel-administrador.component';
 
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PanelCursosComponent } from './pages/panel-administrador/panel-cursos/panel-cursos.component';
 import { PagesModule } from './pages/pages.module';
 import { PanelHabilidadesComponent } from './pages/panel-administrador/panel-habilidades/panel-habilidades.component';
+import { AuthInterseptorService } from './servicios/interseptor/auth-interseptor.service';
 
 
 
@@ -50,7 +51,7 @@ import { PanelHabilidadesComponent } from './pages/panel-administrador/panel-hab
     
    
   ],
-  providers: [],
+  providers: [{provide:HTTP_INTERCEPTORS, useClass:AuthInterseptorService, multi:true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

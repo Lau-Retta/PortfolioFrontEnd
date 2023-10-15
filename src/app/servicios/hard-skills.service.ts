@@ -1,49 +1,39 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import {Habilidad} from '../modelo/HardSkills.modelo';
+import { Habilidad } from '../modelo/HardSkills.modelo';
 import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HardSkillsService {
-  hard_URL= 'http://localhost:8080/Hard';
+  hard_URL = 'http://localhost:8080/Hard';
 
-  constructor(private httpClient : HttpClient) { }
+  constructor(private httpClient: HttpClient) { }
 
-  public getHabilidades():Observable<Habilidad[]>{
-    return this.httpClient.get<Habilidad[]>(this.hard_URL+'/lista');
+  public getHabilidades(): Observable<Habilidad[]> {
+    return this.httpClient.get<Habilidad[]>(this.hard_URL + '/lista');
 
   }
 
-
-  //obtenemos educacion x id
-  public detail(id:number):Observable<Habilidad>{
+  //obtenemos habilidad  x id
+  public detail(id: number): Observable<Habilidad> {
 
     return this.httpClient.get<Habilidad>(this.hard_URL + `/traer/${id}`)
   }
-  //guardar una nueva educacion
-  public save(hablidad: Habilidad):Observable<any>{
-    const headers = new HttpHeaders({
-      
-      'Authorization': 'Bearer '+ window.sessionStorage.getItem("jwt")
-    });
-    return this.httpClient.post<any>(this.hard_URL+`/crear`, hablidad, { headers });
+  //guardar una nueva habilidad
+  public save(hablidad: Habilidad): Observable<any> {
+
+    return this.httpClient.post<any>(this.hard_URL + `/crear`, hablidad);
   }
-  //editar una educacion
-  public update(id:number, hablidad:Habilidad):Observable<any>{
-    const headers = new HttpHeaders({
-      
-      'Authorization': 'Bearer '+ window.sessionStorage.getItem("jwt")
-    });
-    return this.httpClient.put<any>(this.hard_URL+`/editar/${id}`, hablidad, {headers});
+  //editar una habilidad
+  public update(id: number, hablidad: Habilidad): Observable<any> {
+
+    return this.httpClient.put<any>(this.hard_URL + `/editar/${id}`, hablidad);
   }
-  //borrar una educacion
-  public delete(id:number):Observable<any>{
-    const headers = new HttpHeaders({
-      
-      'Authorization': 'Bearer '+ window.sessionStorage.getItem("jwt")
-    });
-    return this.httpClient.delete<any>(this.hard_URL+`/borrar/${id}`,{headers});
+  //borrar una habilidad
+  public delete(id: number): Observable<any> {
+
+    return this.httpClient.delete<any>(this.hard_URL + `/borrar/${id}`);
   }
 }

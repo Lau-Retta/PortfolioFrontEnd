@@ -1,7 +1,7 @@
 export class Habilidades{
     id?: number;
    
-    habilidad:String;
+    habilidad:string;
 
     constructor( hablidad:string){
       

@@ -91,10 +91,10 @@
                             <div class="col-4">
                                 <!--Editar-->
                                 <button class="btn azulito m-1" data-bs-toggle="modal"
-                                    data-bs-target="#EditarhardModal"><i class="fa-solid fa-pencil"></i></button>
+                                    data-bs-target="#EditarsoftModal" (click)="EditarHabilidad(hablidad.id)"><i class="fa-solid fa-pencil"></i></button>
                                 <!--Eliminar-->
-                                <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#softModal"><i
-                                        class="fa-solid fa-trash ml-1"></i></button>
+                                <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#softModal" (click)="selector(hablidad.id)"><i
+                                        class="fa-solid fa-trash ml-1" ></i></button>
 
                             </div>
                             <div class="row border-top">
@@ -152,7 +152,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-success" (click)="GuardarTecno()"  data-bs-dismiss="modal"> Guardar</button>
+                    <button type="button" class="btn btn-success" (click)="Guardar(1)"  data-bs-dismiss="modal"> Guardar</button>
                 </div>
          
         </div>
@@ -179,7 +179,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-success" (click)="GuardarTecno()"  data-bs-dismiss="modal"> Guardar</button>
+                    <button type="button" class="btn btn-success" (click)="Guardar(1)"  data-bs-dismiss="modal"> Guardar</button>
                 </div>
          
         </div>
@@ -202,7 +202,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-danger" >Eliminar</button>
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="EliminiarHablidad()" >Eliminar</button>
             </div>
         </div>
     </div>
@@ -218,17 +218,15 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form [formGroup]="tecnoEditar">
+                    <form [formGroup]="habilidadEditar">
                         <span>Nombre : </span>
                         <input class="form-control" type="text" formControlName="habilidad">
-                        <span>Nivel: </span>
-                        <input class="form-control" id="nivel" type="number" min="0" max="100"
-                                    formControlName="nivel">
+                       
                     </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-success" (click)="GuardarTecno()"  data-bs-dismiss="modal"> Guardar</button>
+                    <button type="button" class="btn btn-success" (click)="Guardar(0)"  data-bs-dismiss="modal"> Guardar</button>
                 </div>
          
         </div>
@@ -245,17 +243,15 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form [formGroup]="tecnoEditar">
+                    <form [formGroup]="habilidadEditar">
                         <span>Nombre : </span>
-                        <input class="form-control" type="text" formControlName="habilidad">
-                        <span>Nivel: </span>
-                        <input class="form-control" id="nivel" type="number" min="0" max="100"
-                                    formControlName="nivel">
+                        <input class="form-control" type="text" formControlName="habilidad" >
+                        
                     </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-success" (click)="GuardarTecno()"  data-bs-dismiss="modal"> Guardar</button>
+                    <button type="button" class="btn btn-success" (click)="Guardar(0)"  data-bs-dismiss="modal"> Guardar</button>
                 </div>
          
         </div>
