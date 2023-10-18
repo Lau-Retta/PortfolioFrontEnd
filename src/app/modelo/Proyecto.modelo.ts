@@ -1,10 +1,10 @@
 export class Proyectos{
     id?: number;
-    nombre:String;
-    descripcion:String;
-    ima_proyecto:String;
-    url:String;
-    constructor( nombre:String, descripcion:String, ima_proyecto:String, url:String){
+    nombre:string;
+    descripcion:string;
+    ima_proyecto:string;
+    url:string;
+    constructor( nombre:string, descripcion:string, ima_proyecto:string, url:string){
       
       this.nombre= nombre;
       this.descripcion= descripcion;

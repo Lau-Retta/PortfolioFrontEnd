@@ -1,7 +1,7 @@
 <!--Cursos-->
 <div>
     <button class="btn azulito  m-3" data-bs-toggle="modal"
-    data-bs-target="#certificadoModalCenter">+ Agregar</button>
+    data-bs-target="#certificadoModalCenter" (click)="seleccionar(0)" >+ Agregar</button>
     <div class="m-3 d-flex" style="min-width: 325px;">
       <div class="card card-certificado" *ngFor="let certificado of certificados">
         <img src="{{certificado.certificado}}" class="card-img-top"
@@ -11,10 +11,10 @@
 
           <h5 class="card-text row m-2 ">{{certificado.descripcion}}</h5>
           <button type="button" class="btn azulito m-1" data-bs-toggle="modal"
-          data-bs-target="#EditcertificadoModalCenter">Editar</button>
+          data-bs-target="#EditcertificadoModalCenter" (click)="seleccionar(certificado.id)">Editar</button>
 
           <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-            data-bs-target="#ElimCertificadoModalCenter">
+            data-bs-target="#ElimCertificadoModalCenter" (click)="seleccionar(certificado.id)">
             Eliminar
           </button>
 
@@ -41,7 +41,7 @@
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
           <button type="submit" class="btn btn-danger" data-bs-dismiss="modal"
-            (click)="null">Eliminar</button>
+            (click)="eliminar()">Eliminar</button>
         </div>
       </div>
     </div>
@@ -71,7 +71,7 @@
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
           <button type="submit" class="btn btn-primary" data-bs-dismiss="modal"
-            (click)="null">Guardar</button>
+            (click)="guardar()">Guardar</button>
         </div>
       </div>
     
@@ -102,7 +102,7 @@
        <div class="modal-footer">
          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
          <button type="submit" class="btn btn-primary" data-bs-dismiss="modal"
-           (click)="null">Guardar</button>
+           (click)="guardar()">Guardar</button>
        </div>
      </div>
    

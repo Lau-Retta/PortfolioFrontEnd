@@ -26,7 +26,7 @@ export class PanelAdministradorComponent implements OnInit {
   usuarioEditado = this.formBuilder.group({
     nombre: [this.usuario.nombre],
     apellido: [this.usuario.apellido],
-    image: [this.usuario.img],
+    img: [this.usuario.img],
     banner: [this.usuario.banner],
     descripcion: [this.usuario.descripcion],
     linkedin: [this.usuario.linkedin],
@@ -79,7 +79,7 @@ export class PanelAdministradorComponent implements OnInit {
         this.usuarioEditado = this.formBuilder.group({
           nombre: [this.usuario.nombre],
           apellido: [this.usuario.apellido],
-          image: [this.usuario.img],
+          img: [this.usuario.img],
           banner: [this.usuario.banner],
           descripcion: [this.usuario.descripcion],
           linkedin: [this.usuario.linkedin],
@@ -123,7 +123,7 @@ export class PanelAdministradorComponent implements OnInit {
     }
 
     if (fotoSelect = "perfil") {
-      this.prefoto = this.usuarioEditado.controls.image.value;
+      this.prefoto = this.usuarioEditado.controls.img.value;
     }
     console.log(this.prefoto);
 
@@ -149,6 +149,8 @@ export class PanelAdministradorComponent implements OnInit {
           url_info: [data.url_info]
         })
         this.elimExp = true;
+        
+        
       })
 
     }

@@ -131,7 +131,7 @@
                       <div class="input-group-text ">
                         <label for="fotoPerfil" class="m-2">Foto de perfil: </label>
                         <input type="text" class="form-control" id="inputGroupFile04" name="fotoPerfil"
-                          aria-describedby="inputGroupFileAddon04" aria-label="Upload" formControlName="image"
+                          aria-describedby="inputGroupFileAddon04" aria-label="Upload" formControlName="img"
                           placeholder=""><button class="btn btn-secondary m-1"
                           (click)="previsualizar('perfil')">ver</button>
 
@@ -361,78 +361,7 @@
               
               <!--Proyectos-->
               <div class="tab-pane fade" id="list-proyectos" role="tabpanel" aria-labelledby="list-proyectos-list">
-                <div class="container ">
-                  <form class="mt-2 ">
-                    <div class="input-group mt-3 ">
-                      <input type="file" class="form-control" id="inputGroupFile04"
-                        aria-describedby="inputGroupFileAddon04" aria-label="Upload">
-                      <button class="btn btn-outline-secondary" type="button" id="inputGroupFileAddon04">Subir</button>
-                    </div>
-                    <div class="mb-3 mt-3">
-                      <label for="urlProyecto" class="form-label">Url</label>
-                      <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                    </div>
-                    <div class="mb-3 mt-3">
-                      <label for="Descripción_pagina" class="form-label">Descripción</label>
-                      <textarea class="form-control" id="Descripción_pagina" rows="3"></textarea>
-                    </div>
-                  </form>
-                </div>
-
-                <div class="container"> <!-- Hacer un carrusel de proyectos -->
-                  <div id="carouselExampleInterval" class="carousel slide mt-4" data-bs-ride="carousel">
-                    <div class="carousel-inner">
-                      <div class="carousel-item active" data-bs-interval="0">
-                        <div class="card m-1 text-center ">
-                          <img
-                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOBuSkdHwEhxnokAkF6THfGfAG65Eyt9pWVI4raD4sQjozeC3Qm1RS4WilXKSVRKSPhXI&usqp=CAU"
-                            class=" alturaCard" alt="IRA PAVLOVA">
-
-                          <div class="card-body">
-                            <h5 class="card-title">IRA PAVLOVA</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                              of the card's content.</p>
-                            <a href="https://www.irapavlova.net/" target="_blank" class="btn azulito m-1">Ir al
-                              sitio</a><button class="btn azulito" data-bs-toggle="modal"
-                              data-bs-target="#proyectosModal">Editar<i class="fa-solid fa-pencil"></i></button>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="carousel-item" data-bs-interval="10000">
-                        <div class="card m-1 ">
-                          <img
-                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOBuSkdHwEhxnokAkF6THfGfAG65Eyt9pWVI4raD4sQjozeC3Qm1RS4WilXKSVRKSPhXI&usqp=CAU"
-                            class=" alturaCard" alt="IRA PAVLOVA">
-
-                          <div class="card-body">
-                            <h5 class="card-title">ALISON DE MARS</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                              of the card's content.</p>
-                            <a href="https://www.demars.se/" target="_blank" class="btn azulito m-1">Ir al
-                              sitio</a><button class="btn azulito" data-bs-toggle="modal"
-                              data-bs-target="#proyectosModal">Editar<i class="fa-solid fa-pencil"></i></button>
-                          </div>
-                        </div>
-                      </div>
-
-                    </div>
-                    <button class="carousel-control-prev " type="button" data-bs-target="#carouselExampleInterval"
-                      data-bs-slide="prev">
-                      <span class="carousel-control-prev-icon bg-dark" aria-hidden="true"></span>
-                      <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval"
-                      data-bs-slide="next">
-                      <span class="carousel-control-next-icon bg-dark" aria-hidden="true"></span>
-                      <span class="visually-hidden">Next</span>
-                    </button>
-                  </div>
-
-                  <div class="d-flex flex-row mt-5">
-
-
-                  </div>
-                </div>
+                <app-panel-proyectos></app-panel-proyectos>
               </div>
             </div>
           </div>

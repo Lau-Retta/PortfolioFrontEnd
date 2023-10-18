@@ -19,6 +19,7 @@ import { PanelCursosComponent } from './pages/panel-administrador/panel-cursos/p
 import { PagesModule } from './pages/pages.module';
 import { PanelHabilidadesComponent } from './pages/panel-administrador/panel-habilidades/panel-habilidades.component';
 import { AuthInterseptorService } from './servicios/interseptor/auth-interseptor.service';
+import { PanelProyectosComponent } from './pages/panel-administrador/panel-proyectos/panel-proyectos/panel-proyectos.component';
 
 
 
@@ -38,7 +39,8 @@ import { AuthInterseptorService } from './servicios/interseptor/auth-interseptor
     RegistroComponent,
     PanelAdministradorComponent,
     PanelCursosComponent,
-    PanelHabilidadesComponent
+    PanelHabilidadesComponent,
+    PanelProyectosComponent
     
 
   ],

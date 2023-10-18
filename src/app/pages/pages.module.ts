@@ -7,8 +7,7 @@ import { InicioComponent } from './inicio/inicio.component';
 import {FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {  HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from '../app-routing.module';
-import { PanelCursosComponent } from './panel-administrador/panel-cursos/panel-cursos.component';
-import { PanelHabilidadesComponent } from './panel-administrador/panel-habilidades/panel-habilidades.component';
+
 
 
 
@@ -16,11 +15,8 @@ import { PanelHabilidadesComponent } from './panel-administrador/panel-habilidad
 
 @NgModule({
   declarations: [
+
    
-  
-    
-  
-    
   ],
   imports: [
     CommonModule,
